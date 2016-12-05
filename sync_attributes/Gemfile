@@ -1,0 +1,4 @@
+source "https://rubygems.org"
+gem 'rack', '~>1.1'
+gem 'chef', '~> 11.6'
+gem 'logger'
