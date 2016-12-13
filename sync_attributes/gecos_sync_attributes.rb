@@ -182,18 +182,18 @@ begin
 	 puts "\t\tAll OK."
     end
     $logger.info("Recipes used for comparison => #{(complete_section - desync_recipes_declare).to_a.sort}")
-    puts "\n\tRecipes not used for comparison because lacking in complete_js:\n"
+    puts "\n\tRecipes missing  in complete_js, not used for comparison:\n"
     not_comparison_recipes = ( desync_recipes_complete | desync_recipes_declare )
     if not_comparison_recipes.any? 
 	not_comparison_recipes.map {|s| puts "\t\t#{s}"}
     else
 	 puts "\t\tAll OK."
     end
-    $logger.info("Recipes not used for comparison because lacking in complete_js or not in declarative section=> #{desync_recipes_complete|desync_recipes_declare}")
+    $logger.info("Recipes missing in complete_js or not present in declarative section, not used for comparison=> #{desync_recipes_complete|desync_recipes_declare}")
 
     puts "\n\tThe following attributes are found in metadata.rb but not in attributes/default.rb:\n"
     $logger.info("DIFFERENCES BETWEEN METADATA.RB AND ATTRIBUTES/DEFAULT.RB")
-    $logger.info("The following attributes are found in metadata.rb and not in attributes/default.rb\n")
+    $logger.info("The following attributes are found in metadata.rb but not in attributes/default.rb\n")
 
     metadata = metaparser(metafile,3)
 
